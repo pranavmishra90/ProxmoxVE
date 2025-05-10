@@ -56,6 +56,7 @@ jobs:
             - Permissions have been fixed.
           sign-commits: true
 
-          base: main
+          base: "main"
           commit-message: "ci: date stamp"
           branch: "feat/update-${{ env.timestamp }}"
+          delete-branch: "true"
