@@ -19,6 +19,22 @@ git remote set-url --push upstream no_push
 
 # Create a new intermediate branch from the main branch
 git checkout main
+
+
+if git show-ref --verify --quiet refs/heads/${BRANCH_NAME}; then
+    echo "[INFO] Deleting local branch: ${BRANCH_NAME}"
+    git branch -D ${BRANCH_NAME}
+else
+    echo "[INFO] Local branch ${BRANCH_NAME} does not exist. Skipping deletion."
+fi
+
+if git ls-remote --exit-code --heads origin ${BRANCH_NAME} > /dev/null; then
+    echo "[INFO] Deleting remote branch: ${BRANCH_NAME}"
+    git push origin --delete ${BRANCH_NAME}
+else
+    echo "[INFO] Remote branch ${BRANCH_NAME} does not exist. Skipping deletion."
+fi
+
 git checkout --no-track -B ${BRANCH_NAME} main
 
 
