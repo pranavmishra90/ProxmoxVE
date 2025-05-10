@@ -54,6 +54,7 @@ jobs:
             This PR updates the scripts from the upstream repository.  
             - URLs have been modified to this fork.
             - Permissions have been fixed.
+          sign-commits: true
 
           base: main
           commit-message: "ci: date stamp"
