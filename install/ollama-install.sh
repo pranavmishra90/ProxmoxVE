@@ -61,6 +61,8 @@ msg_ok "Installed Intel® Level Zero"
 msg_info "Installing Intel® oneAPI Base Toolkit (Patience)"
 $STD apt install -y --no-install-recommends intel-basekit-2024.1
 msg_ok "Installed Intel® oneAPI Base Toolkit"
+$STD apt install -y --no-install-recommends vulkan-tools
+msg_ok "Installed Vulkan Tools"
 fi
 
 msg_info "Installing Ollama (Patience)"
@@ -99,12 +101,10 @@ After=network-online.target
 [Service]
 Type=exec
 ExecStart=/usr/local/bin/ollama serve
-Environment=HOME=$HOME
-Environment=OLLAMA_INTEL_GPU=true
+Environment=HOME=/root
 Environment=OLLAMA_HOST=0.0.0.0
-Environment=OLLAMA_NUM_GPU=999
-Environment=SYCL_CACHE_PERSISTENT=1
-Environment=ZES_ENABLE_SYSMAN=1
+Environment=OLLAMA_VULKAN=1
+Environment=OLLAMA_IGPU_ENABLE=1
 Restart=always
 RestartSec=3
 
