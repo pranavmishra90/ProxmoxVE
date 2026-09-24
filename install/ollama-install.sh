@@ -61,8 +61,8 @@ msg_ok "Installed Intel® Level Zero"
 msg_info "Installing Intel® oneAPI Base Toolkit (Patience)"
 $STD apt install -y --no-install-recommends intel-basekit-2024.1
 msg_ok "Installed Intel® oneAPI Base Toolkit"
-$STD apt install -y --no-install-recommends vulkan-tools
-msg_ok "Installed Vulkan Tools"
+$STD apt install -y --no-install-recommends vulkan-tools mesa-vulkan-drivers
+msg_ok "Installed Vulkan Drivers and Tools"
 fi
 
 msg_info "Installing Ollama (Patience)"
