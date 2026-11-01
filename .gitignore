@@ -35,3 +35,11 @@ vm/*.bak
 json/
 json/*.bak
 json/*.tmp
+
+#-----------------------
+# pranavmishra90
+#-----------------------
+
+# Python
+.venv
+**/__pycache__/
